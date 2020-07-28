@@ -13,8 +13,11 @@ packages = [
     'quran'
 ]
 
-with io.open(path.join(path.abspath(path.dirname(__file__)), 'Readme.md'), encoding='utf-8') as f:
+with io.open(path.join(path.abspath(path.dirname(__file__)), 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
+
+with open('requirements.txt', 'r') as f:
+    requirements_inside = f.readlines()
 
 setup(
     name='quran',
@@ -23,7 +26,7 @@ setup(
     author_email='ryeasin03@gmail.com',
     license='MIT',
     url='https://github.com/dreygur/Quran.com/tree/master',
-    install_requires=[],
+    install_requires=requirements_inside,
     keywords='quran api',
     description='A python wrapper quran.com api.',
     long_description=long_description,
