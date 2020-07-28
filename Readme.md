@@ -10,11 +10,11 @@ API will respond with English content by default, but you can get content in oth
 ### Using quran.com
 
 __Installing__
-```
+```bash
 python3 -m pip install git+https://github.com/dreygur/Quran.com.git
 ```
 or
-```
+```bash
 pip install git+https://github.com/dreygur/Quran.com.git
 ```
 
