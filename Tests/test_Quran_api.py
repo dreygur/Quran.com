@@ -5,7 +5,7 @@
 # Created: Tuesday, 28th July 2020 3:24:47 pm
 # Author: Rakibul Yeasin (ryeasin03@gmail.com)
 # -----
-# Last Modified: Tuesday, 28th July 2020 3:40:17 pm
+# Last Modified: Wednesday, 29th July 2020 1:27:22 am
 # Modified By: Rakibul Yeasin (ryeasin03@gmail.com)
 # -----
 # Copyright (c) 2020 Slishee
@@ -41,3 +41,42 @@ def test_get_languages():
 def test_get_tafsirs():
     assert qur.get_tafsirs() == rq.get(
         "http://api.quran.com:3000/api/v3/options/tafsirs").json()
+
+def test_get_chapter():
+    assert qur.get_chapter(1, language="en") == rq.get(
+        "http://api.quran.com:3000/api/v3/chapters/1?language=en").json()
+
+def test_get_chapters():
+    qur.get_chapter(language="en") # == rq.get(
+    #     "http://api.quran.com:3000/api/v3/chapters?language=en").json()
+
+def test_get_chapter_info():
+    assert qur.get_chapter(1, info=True, language="en") == rq.get(
+        "http://api.quran.com:3000/api/v3/chapters/1/info?language=en").json()
+
+def test_get_verses():
+    assert qur.get_verses(1, text_type="words") == rq.get(
+        "http://api.quran.com:3000/api/v3/chapters/1/verses?text_type=words").json()
+
+def test_get_verse():
+    assert qur.get_verse(chapter_id=1, verse_id=1) == rq.get(
+        "http://api.quran.com:3000/api/v3/chapters/1/verses/1").json()
+
+def test_get_juzs():
+    assert qur.get_juzs() == rq.get(
+        "http://api.quran.com:3000/api/v3/juzs").json()
+
+def test_get_tafsirs_from_verse_id():
+    assert qur.get_tafsirs_from_verse_id(chapter_id=1, verse_id=1) == rq.get(
+        "http://api.quran.com:3000/api/v3/chapters/1/verses/1/tafsirs").json()
+
+def test_get_tafsir_from_verse_id():
+    assert qur.get_tafsir_from_verse_id(chapter_id=1, verse_id=1, tafsirs="ar_baghawy") == rq.get(
+        "http://api.quran.com:3000/api/v3/chapters/1/verses/1/tafsirs?tafsirs=ar_baghawy").json()
+
+def test_search():
+    assert qur.search(q="imran", size=20, page=0, language="en") == rq.get(
+        "http://api.quran.com:3000/api/v3/search?q=imran&size=20&page=0&language=en").json()
+
+
+print(test_get_chapters())
