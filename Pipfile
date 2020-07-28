@@ -4,6 +4,7 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+pytest = "*"
 
 [packages]
 astroid = "==2.4.2"
@@ -21,7 +22,6 @@ six = "==1.15.0"
 toml = "==0.10.1"
 urllib3 = "==1.25.10"
 wrapt = "==1.12.1"
-pytest = "*"
 
 [requires]
 python_version = "3.8"
