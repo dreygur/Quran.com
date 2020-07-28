@@ -11,7 +11,7 @@ cache: pip
 sudo: required
 
 script:
-  - pytest
+  - pytest -vv
 
 
 notifications:
