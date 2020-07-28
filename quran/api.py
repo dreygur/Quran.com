@@ -5,13 +5,14 @@
 # Created: Tuesday, 28th July 2020 12:31:21 pm
 # Author: Rakibul Yeasin (ryeasin03@gmail.com)
 # -----
-# Last Modified: Tuesday, 28th July 2020 5:24:34 pm
+# Last Modified: Tuesday, 28th July 2020 6:00:33 pm
 # Modified By: Rakibul Yeasin (ryeasin03@gmail.com)
 # -----
 # Copyright (c) 2020 Slishee
 ###
 
 import quran as q
+from typing import Dict
 
 class Quran:
     """
@@ -20,7 +21,7 @@ class Quran:
     Contains:
         get_recitations
     """
-    def __init__(self):
+    def __init__(self) -> None:
         """
         Constructor class
 
@@ -30,11 +31,11 @@ class Quran:
         returns
             None
         """
-        self.base = "http://api.quran.com:3000/api/v3/"
+        self.base: str = "http://api.quran.com:3000/api/v3/"
 
-        self.rq = q.Request()
+        self.rq: str = q.Request()
 
-    def get_recitations(self):
+    def get_recitations(self) -> Dict:
         """
         Get list of available Recitations.
         Use language query to get translated names of reciters in specific language(e.g language=ur will send translation names in Urdu).
@@ -47,7 +48,7 @@ class Quran:
         """
         return self.rq.get(f"{self.base}options/recitations")
 
-    def get_translations(self):
+    def get_translations(self) -> Dict:
         """
         Get list of available translations.
         args
@@ -58,7 +59,7 @@ class Quran:
         """
         return self.rq.get(f"{self.base}options/translations")
 
-    def get_languages(self, **lang):
+    def get_languages(self, **lang) -> Dict:
         """
         Get all languages.
         You can get translated names of languages in specific language using language query parameter.
@@ -72,8 +73,8 @@ class Quran:
         returns:
             json Object
         """
-        self.language_end = "options/languages"
-        self.uri = f"{self.base}{self.language_end}"
+        self.language_end: str = "options/languages"
+        self.uri: str = f"{self.base}{self.language_end}"
         if lang:
             if type(lang.get("language")) is str:
                 return self.rq.get(self.uri, lang["language"])
@@ -81,7 +82,7 @@ class Quran:
                 raise q.LanguageNotAvailable
         return self.rq.get(self.uri)
 
-    def get_tafsirs(self):
+    def get_tafsirs(self) -> Dict:
         """
         args:
             None
@@ -91,7 +92,7 @@ class Quran:
         """
         return self.rq.get(f"{self.base}options/tafsirs")
 
-    def get_chapter(self, *args, **kwargs):
+    def get_chapter(self, *args, **kwargs) -> Dict:
         """
         Get list of chapter. Use language query to get translated names of chapter in specific language
         (e.g language=bn will send translation names in Bangla).
@@ -123,7 +124,7 @@ class Quran:
 
         return self.rq.get(f"{self.base}chapters")
 
-    def get_verses(self, id, **kwargs):
+    def get_verses(self, id, **kwargs) -> Dict:
         """
         Get all the verse from specific chapter_id
 
@@ -144,16 +145,16 @@ class Quran:
         """
         return self.rq.get(f"{self.base}chapter/{id}/verse", kwargs)
 
-    def get_verse(self, chapter_id, verse_id):
+    def get_verse(self, chapter_id, verse_id) -> Dict:
         """
         Get a single verse_id from a specific chapter_id
         """
         return self.rq.get(f"{self.base}chapters/{chapter_id}/verses/{verse_id}")
 
-    def get_juzs(self):
+    def get_juzs(self) -> Dict:
         return self.rq.get(f"{self.base}juzs")
 
-    def get_tafsirs_from_verse_id(self, chapter_id, verse_id):
+    def get_tafsirs_from_verse_id(self, chapter_id, verse_id) -> Dict:
         """
         Returns all Tafsir from a verse_id
 
@@ -166,7 +167,7 @@ class Quran:
         """
         return self.rq.get(f"{self.base}chapters/{chapter_id}/verse_id_ids/{verse_id}/tafsirs")
 
-    def get_tafsir_from_verse_id(self, chapter_id, verse_id, **kwargs):
+    def get_tafsir_from_verse_id(self, chapter_id, verse_id, **kwargs) -> Dict:
         """
         Returns a single Tafsir from a verse_id
 
@@ -180,7 +181,7 @@ class Quran:
         """
         return self.rq.get(f"{self.base}chapters/{chapter_id}/verse_id_ids/{verse_id}/tafsirs", kwargs)
 
-    def search(self, **kwargs):
+    def search(self, **kwargs) -> Dict:
         """
         args:
             q           Search query, you can use query as well (optional)
