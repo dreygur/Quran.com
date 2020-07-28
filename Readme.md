@@ -9,6 +9,15 @@ API will respond with English content by default, but you can get content in oth
 
 ### Using quran.com
 
+__Installing__
+```
+python3 -m pip install git+https://github.com/dreygur/Quran.com.git
+```
+or
+```
+pip install git+https://github.com/dreygur/Quran.com.git
+```
+
 __Importing Quran:__
 ```python3
 from quran import Quran
