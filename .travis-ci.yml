@@ -1,0 +1,26 @@
+language: python
+
+os:
+  - linux
+
+python:
+  - 3.8
+
+cache: pip
+
+sudo: required
+
+script:
+  - pytest
+
+
+notifications:
+  slack:
+    rooms:
+      - dropnup:x1ZOJDTXefsq1eLGChjXgKhk#general
+      - dropnup:x1ZOJDTXefsq1eLGChjXgKhk#dev
+
+before_script:
+  - sudo apt install pipenv
+  - pipenv install
+  - pipenv shell
