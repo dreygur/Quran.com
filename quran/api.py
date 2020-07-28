@@ -5,7 +5,7 @@
 # Created: Tuesday, 28th July 2020 12:31:21 pm
 # Author: Rakibul Yeasin (ryeasin03@gmail.com)
 # -----
-# Last Modified: Tuesday, 28th July 2020 1:58:04 pm
+# Last Modified: Tuesday, 28th July 2020 3:18:14 pm
 # Modified By: Rakibul Yeasin (ryeasin03@gmail.com)
 # -----
 # Copyright (c) 2020 Slishee
@@ -14,7 +14,7 @@
 import sys
 sys.dont_write_bytecode = True
 
-from required import Request
+from .required import Request
 
 class Quran:
     """
@@ -66,9 +66,9 @@ class Quran:
     def get_tafsirs(self):
         return self.rq.get(f"{self.base}options/tafsirs")
 
-    def get_chapters(self, *args, **kwargs):
+    def get_chapter(self, *args, **kwargs):
         """
-        Get list of chapters. Use language query to get translated names of chapters in specific language
+        Get list of chapter. Use language query to get translated names of chapter in specific language
         (e.g language=bn will send translation names in Bangla).
 
         args:
@@ -92,7 +92,7 @@ class Quran:
 
     def get_verses(self, id, **kwargs):
         """
-        Get all the verses from specific Chapter
+        Get all the verse from specific chapter_id
 
         args:
             recitation
@@ -101,18 +101,49 @@ class Quran:
             language        default: en
             page            for paginating the results
             offset
-            limit           Control number of verses you want to get with each api call. Max limit is 50
-            text_type       could be image[to get image of verse] OR words[this will return list of words for verse].
+            limit           Control number of verse you want to get with each api call. Max limit is 50
+            text_type       could be image[to get image of verse_id] OR words[this will return list of words for verse_id].
                             Allowed Values: words, image
                             default: words
         """
-        return self.rq.get(f"{self.base}chapters/{id}/verses", kwargs)
+        return self.rq.get(f"{self.base}chapter/{id}/verse", kwargs)
 
-    def get_verse(self, chapter, verse):
+    def get_verse(self, chapter_id, verse_id):
         """
-        Get a single verse from a specific Chapter
+        Get a single verse_id from a specific chapter_id
         """
-        return self.rq.get(f"{self.base}chapters/{chapter}/verses/{verse}")
+        return self.rq.get(f"{self.base}chapters/{chapter_id}/verses/{verse_id}")
+
+    def get_juzs(self):
+        return self.rq.get(f"{self.base}juzs")
+
+    def get_tafsirs_from_verse_id(self, chapter_id, verse_id):
+        """
+        args:
+            chapter_id
+            verse_id
+        """
+        return self.rq.get(f"{self.base}chapters/{chapter_id}/verse_id_ids/{verse_id}/tafsirs")
+
+    def get_tafsir_from_verse_id_id(self, chapter_id, verse_id, **kwargs):
+        """
+
+        args:
+            chapter_id
+            verse_id
+            tafsirs     Optional
+        """
+        return self.rq.get(f"{self.base}chapters/{chapter_id}/verse_id_ids/{verse_id}/tafsirs", kwargs)
+
+    def search(self, **kwargs):
+        """
+        q           Search query, you can use query as well (optional)
+        size        Results per page. s is also valid parameter. (default: 20, optional)
+        page        Page number, well for pagination. You can use p as well (default: 0, optional
+        language    ISO code of language, use this query params if you want to boost translations for specific language. (default: en, optional)
+        """
+        return self.rq.get(f"{self.base}search", kwargs)
+
 
 # Test
 if __name__ == "__main__":
@@ -124,5 +155,6 @@ if __name__ == "__main__":
     # res = quran.get_chapters(6, language="ur")
     # res = quran.get_verses(6, recitation=1, translations=21, language="en", text_type="words")
     res = quran.get_verse(6, 6)
+    # res = quran.get_juzs()
 
     print(res)
