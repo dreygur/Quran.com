@@ -1,0 +1,1 @@
+https://travis-ci.com/dreygur/Quran.com.svg?token=eWxPbQig1xhUqhPrMFx5&branch=master
