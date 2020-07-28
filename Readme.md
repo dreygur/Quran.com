@@ -1,3 +1,7 @@
+<p align="center">
+  <img alt="" style="{max-height: 50px}" src="./images/banner.png">
+</p>
+
 # Quran.com API [![Build Status](https://travis-ci.com/dreygur/Quran.com.svg?token=eWxPbQig1xhUqhPrMFx5&branch=master)](https://travis-ci.com/dreygur/Quran.com)
 This is a python wraper for quran.com v3 api
 
