@@ -5,7 +5,7 @@
 # Created: Tuesday, 28th July 2020 12:31:21 pm
 # Author: Rakibul Yeasin (ryeasin03@gmail.com)
 # -----
-# Last Modified: Tuesday, 28th July 2020 1:37:12 pm
+# Last Modified: Tuesday, 28th July 2020 1:58:04 pm
 # Modified By: Rakibul Yeasin (ryeasin03@gmail.com)
 # -----
 # Copyright (c) 2020 Slishee
@@ -90,6 +90,30 @@ class Quran:
 
         return self.rq.get(f"{self.base}chapters")
 
+    def get_verses(self, id, **kwargs):
+        """
+        Get all the verses from specific Chapter
+
+        args:
+            recitation
+            translations
+            media
+            language        default: en
+            page            for paginating the results
+            offset
+            limit           Control number of verses you want to get with each api call. Max limit is 50
+            text_type       could be image[to get image of verse] OR words[this will return list of words for verse].
+                            Allowed Values: words, image
+                            default: words
+        """
+        return self.rq.get(f"{self.base}chapters/{id}/verses", kwargs)
+
+    def get_verse(self, chapter, verse):
+        """
+        Get a single verse from a specific Chapter
+        """
+        return self.rq.get(f"{self.base}chapters/{chapter}/verses/{verse}")
+
 # Test
 if __name__ == "__main__":
     quran = Quran()
@@ -97,6 +121,8 @@ if __name__ == "__main__":
     # res = quran.get_translations()
     # res = quran.get_languages(language='ur')
     # res = quran.get_tafsirs()
-    res = quran.get_chapters(6, language="ur")
+    # res = quran.get_chapters(6, language="ur")
+    # res = quran.get_verses(6, recitation=1, translations=21, language="en", text_type="words")
+    res = quran.get_verse(6, 6)
 
     print(res)

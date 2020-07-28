@@ -5,7 +5,7 @@
 # Created: Tuesday, 28th July 2020 12:34:09 pm
 # Author: Rakibul Yeasin (ryeasin03@gmail.com)
 # -----
-# Last Modified: Tuesday, 28th July 2020 1:03:25 pm
+# Last Modified: Tuesday, 28th July 2020 1:53:24 pm
 # Modified By: Rakibul Yeasin (ryeasin03@gmail.com)
 # -----
 # Copyright (c) 2020 Slishee
@@ -17,9 +17,9 @@ class Request:
     def __init__(self):
         self.headers = {'content-type': "application/json"}
         self.payload = {}
-    def get(self, uri, *body):
-        if body:
-            self.res = requests.get(uri, params={body[0]})
+    def get(self, uri, *args):
+        if args:
+            self.res = requests.get(uri, params=args[0])
             self.obj = self.res.json()
             return self.obj
         self.res = requests.get(uri)
