@@ -5,7 +5,7 @@
 # Created: Tuesday, 28th July 2020 12:31:21 pm
 # Author: Rakibul Yeasin (ryeasin03@gmail.com)
 # -----
-# Last Modified: Tuesday, 28th July 2020 1:19:33 pm
+# Last Modified: Tuesday, 28th July 2020 1:37:12 pm
 # Modified By: Rakibul Yeasin (ryeasin03@gmail.com)
 # -----
 # Copyright (c) 2020 Slishee
@@ -66,7 +66,7 @@ class Quran:
     def get_tafsirs(self):
         return self.rq.get(f"{self.base}options/tafsirs")
 
-    def get_chapters(self, *id, **lang):
+    def get_chapters(self, *args, **kwargs):
         """
         Get list of chapters. Use language query to get translated names of chapters in specific language
         (e.g language=bn will send translation names in Bangla).
@@ -75,12 +75,18 @@ class Quran:
             language  Target Language
         """
         if id:
-            if lang:
-                return self.rq.get(f"{self.base}chapters/{id[0]}", lang["language"])
-            return self.rq.get(f"{self.base}chapters/{id[0]}")
+            if kwargs:
+                if kwargs.get("info") and kwargs.get("language"):
+                    return self.rq.get(f"{self.base}chapters/{args[0]}/info", kwargs.get("language"))
+                elif kwargs.get("info"):
+                    return self.rq.get(f"{self.base}chapters/{args[0]}/info")
+                elif kwargs.get("language"):
+                    return self.rq.get(f"{self.base}chapters/{args[0]}", kwargs.get("language"))
 
-        if lang:
-            return self.rq.get(f"{self.base}chapters", lang["language"])
+            return self.rq.get(f"{self.base}chapters/{args[0]}")
+
+        if kwargs:
+            return self.rq.get(f"{self.base}chapters", kwargs["language"])
 
         return self.rq.get(f"{self.base}chapters")
 
@@ -91,6 +97,6 @@ if __name__ == "__main__":
     # res = quran.get_translations()
     # res = quran.get_languages(language='ur')
     # res = quran.get_tafsirs()
-    res = quran.get_chapters(6)
+    res = quran.get_chapters(6, language="ur")
 
     print(res)
