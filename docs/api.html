@@ -18,14 +18,7 @@
         <a class='octothorpe' href='#section-0'>#</a>
       </div>
       <h2></h2>
-<p>File: api.py
-Created: Tuesday, 28th July 2020 12:31:21 pm
-Author: Rakibul Yeasin (ryeasin03@gmail.com)</p>
-<hr />
-<p>Last Modified: Tuesday, 28th July 2020 4:47:21 pm
-Modified By: Rakibul Yeasin (ryeasin03@gmail.com)</p>
-<hr />
-<p>Copyright (c) 2020 Slishee</p>
+
 <h2></h2>
     </div>
     <div class='code'>
@@ -68,7 +61,7 @@ Modified By: Rakibul Yeasin (ryeasin03@gmail.com)</p>
       <div class='octowrap'>
         <a class='octothorpe' href='#section-3'>#</a>
       </div>
-      
+
     </div>
     <div class='code'>
       <div class="highlight"><pre>        <span class="bp">self</span><span class="o">.</span><span class="n">base</span> <span class="o">=</span> <span class="s2">&quot;http://api.quran.com:3000/api/v3/&quot;</span>
@@ -99,7 +92,7 @@ Use language query to get translated names of reciters in specific language(e.g 
       <div class='octowrap'>
         <a class='octothorpe' href='#section-5'>#</a>
       </div>
-      
+
     </div>
     <div class='code'>
       <div class="highlight"><pre>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rq</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">base</span><span class="si">}</span><span class="s2">options/recitations&quot;</span><span class="p">)</span></pre></div>
@@ -127,7 +120,7 @@ args
       <div class='octowrap'>
         <a class='octothorpe' href='#section-7'>#</a>
       </div>
-      
+
     </div>
     <div class='code'>
       <div class="highlight"><pre>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rq</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">base</span><span class="si">}</span><span class="s2">options/translations&quot;</span><span class="p">)</span></pre></div>
@@ -159,7 +152,7 @@ will return language names translated into Bangla</p>
       <div class='octowrap'>
         <a class='octothorpe' href='#section-9'>#</a>
       </div>
-      
+
     </div>
     <div class='code'>
       <div class="highlight"><pre>        <span class="bp">self</span><span class="o">.</span><span class="n">language_end</span> <span class="o">=</span> <span class="s2">&quot;options/languages&quot;</span>
@@ -193,7 +186,7 @@ will return language names translated into Bangla</p>
       <div class='octowrap'>
         <a class='octothorpe' href='#section-11'>#</a>
       </div>
-      
+
     </div>
     <div class='code'>
       <div class="highlight"><pre>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rq</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">base</span><span class="si">}</span><span class="s2">options/tafsirs&quot;</span><span class="p">)</span></pre></div>
@@ -223,7 +216,7 @@ will return language names translated into Bangla</p>
       <div class='octowrap'>
         <a class='octothorpe' href='#section-13'>#</a>
       </div>
-      
+
     </div>
     <div class='code'>
       <div class="highlight"><pre>        <span class="k">if</span> <span class="nb">id</span><span class="p">:</span>
@@ -276,7 +269,7 @@ will return language names translated into Bangla</p>
       <div class='octowrap'>
         <a class='octothorpe' href='#section-15'>#</a>
       </div>
-      
+
     </div>
     <div class='code'>
       <div class="highlight"><pre>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rq</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">base</span><span class="si">}</span><span class="s2">chapter/</span><span class="si">{</span><span class="nb">id</span><span class="si">}</span><span class="s2">/verse&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span></pre></div>
@@ -300,7 +293,7 @@ will return language names translated into Bangla</p>
       <div class='octowrap'>
         <a class='octothorpe' href='#section-17'>#</a>
       </div>
-      
+
     </div>
     <div class='code'>
       <div class="highlight"><pre>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rq</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">base</span><span class="si">}</span><span class="s2">chapters/</span><span class="si">{</span><span class="n">chapter_id</span><span class="si">}</span><span class="s2">/verses/</span><span class="si">{</span><span class="n">verse_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></pre></div>
@@ -312,7 +305,7 @@ will return language names translated into Bangla</p>
       <div class='octowrap'>
         <a class='octothorpe' href='#section-18'>#</a>
       </div>
-      
+
     </div>
     <div class='code'>
       <div class="highlight"><pre>    <span class="k">def</span> <span class="nf">get_juzs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -342,7 +335,7 @@ will return language names translated into Bangla</p>
       <div class='octowrap'>
         <a class='octothorpe' href='#section-20'>#</a>
       </div>
-      
+
     </div>
     <div class='code'>
       <div class="highlight"><pre>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rq</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">base</span><span class="si">}</span><span class="s2">chapters/</span><span class="si">{</span><span class="n">chapter_id</span><span class="si">}</span><span class="s2">/verse_id_ids/</span><span class="si">{</span><span class="n">verse_id</span><span class="si">}</span><span class="s2">/tafsirs&quot;</span><span class="p">)</span></pre></div>
@@ -372,7 +365,7 @@ will return language names translated into Bangla</p>
       <div class='octowrap'>
         <a class='octothorpe' href='#section-22'>#</a>
       </div>
-      
+
     </div>
     <div class='code'>
       <div class="highlight"><pre>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rq</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">base</span><span class="si">}</span><span class="s2">chapters/</span><span class="si">{</span><span class="n">chapter_id</span><span class="si">}</span><span class="s2">/verse_id_ids/</span><span class="si">{</span><span class="n">verse_id</span><span class="si">}</span><span class="s2">/tafsirs&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span></pre></div>
@@ -402,7 +395,7 @@ will return language names translated into Bangla</p>
       <div class='octowrap'>
         <a class='octothorpe' href='#section-24'>#</a>
       </div>
-      
+
     </div>
     <div class='code'>
       <div class="highlight"><pre>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rq</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">base</span><span class="si">}</span><span class="s2">search&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>

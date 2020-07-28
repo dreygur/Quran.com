@@ -5,7 +5,7 @@
 # Created: Tuesday, 28th July 2020 12:31:21 pm
 # Author: Rakibul Yeasin (ryeasin03@gmail.com)
 # -----
-# Last Modified: Tuesday, 28th July 2020 4:47:21 pm
+# Last Modified: Tuesday, 28th July 2020 5:24:34 pm
 # Modified By: Rakibul Yeasin (ryeasin03@gmail.com)
 # -----
 # Copyright (c) 2020 Slishee
@@ -103,6 +103,8 @@ class Quran:
         returns:
             json Object
         """
+        if not args:
+            raise q.ChapterNumberNotFound
         if id:
             if kwargs:
                 if kwargs.get("info") and kwargs.get("language"):

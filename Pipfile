@@ -24,6 +24,7 @@ urllib3 = "==1.25.10"
 wrapt = "==1.12.1"
 pytest = "*"
 pycco = "*"
+pydoc-markdown = "*"
 
 [requires]
 python_version = "3.8"
