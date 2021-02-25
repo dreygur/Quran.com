@@ -31,7 +31,7 @@ class Quran:
         returns
             None
         """
-        self.base: str = "http://api.quran.com:3000/api/v3/"
+        self.base: str = "http://api.quran.com/api/v3/"
         self.rq: str = q.Request()
 
     def get_recitations(self, **kwargs) -> Dict:
