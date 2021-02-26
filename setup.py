@@ -7,7 +7,7 @@ except ImportError:
     from distutils.core import setup
 
 __author__ = 'dreygur <ryeasin03@gmail.com>'
-__version__ = '0.0.1'
+__version__ = '1.0.0'
 
 packages = [
     'quran'
@@ -34,7 +34,7 @@ setup(
     packages=packages,
     platforms=['any'],
     classifiers=[
-        'Development Status :: 1 - Beta',
+        'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
         'Topic :: Software Development :: Libraries :: Python Modules',
