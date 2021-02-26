@@ -28,7 +28,7 @@ setup(
     url='https://github.com/dreygur/Quran.com/tree/master',
     install_requires=requirements_inside,
     keywords='quran api',
-    description='A python wrapper quran.com api.',
+    description='A python wrapper for quran.com api.',
     long_description=long_description,
     long_description_content_type='text/markdown',
     packages=packages,
