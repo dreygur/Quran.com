@@ -31,7 +31,7 @@ class Quran:
         returns
             None
         """
-        self.base: str = "http://api.quran.com:3000/api/v3/"
+        self.base: str = "https://api.quran.com/api/v3/"
         self.rq: str = q.Request()
 
     def get_recitations(self, **kwargs) -> Dict:
@@ -159,19 +159,19 @@ class Quran:
         """
         return self.rq.get(f"{self.base}chapters/{chapter_id}/verses/{verse_id}/tafsirs")
 
-    def get_tafsir_from_verse_id(self, chapter_id, verse_id, **kwargs) -> Dict:
+    def get_tafsir_from_verse_id(self, chapter_id, verse_id, tafsir_id) -> Dict:
         """
         Returns a single Tafsir from a verse_id
 
         args:
             chapter_id
             verse_id
-            tafsirs     Optional
+            tafsir_id (id / slug)
 
         returns:
             json Object
         """
-        return self.rq.get(f"{self.base}chapters/{chapter_id}/verses/{verse_id}/tafsirs", kwargs)
+        return self.rq.get(f"{self.base}chapters/{chapter_id}/verses/{verse_id}/tafsirs/{tafsir_id}")
 
     def search(self, **kwargs) -> Dict:
         """
